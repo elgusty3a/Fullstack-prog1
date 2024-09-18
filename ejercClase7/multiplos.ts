@@ -1,7 +1,7 @@
 import * as rdl from 'readline-sync';
 
 let dividendo:number = rdl.questionInt("Ingrese el dividendo:\n");
-let divisor:number = rdl.questionInt("Ingrese el divisor:\n");
+// let divisor:number = rdl.questionInt("Ingrese el divisor:\n"); //para usar la funcion esMultiplo
 
 function esMultiplo(dividendo:number,divisor:number):boolean{
   let esMultiplo:boolean = false;
@@ -21,7 +21,7 @@ function cantMultiplos(dividendo:number) :number{
   return cantidad;
 }
 
-// let resultado:boolean = esMultiplo(dividendo,divisor);
+// let resultado:boolean = esMultiplo(dividendo,divisor); //para usar la funcion esMultiplo
 let resultado:number = cantMultiplos(dividendo);
 
 console.log(resultado);
