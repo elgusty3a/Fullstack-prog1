@@ -25,28 +25,41 @@ import * as rdl from 'readline-sync';
 
 let cantParticipantes:number = rdl.questionInt("Ingrese la cantidad de participantes del concurso: ");
 let puntajeParticipanteGanador:number=0;
+let participanteAnterior:number=0;
 let participanteGanador:number=0;
+let hayEmpate:boolean = false;
 for (let i = 1; i <= cantParticipantes;  i++) {
-  let sabor:number = rdl.questionInt("Ingrese el puntaje de sabor: ");
-  let presentacion:number = rdl.questionInt("Ingrese el puntaje de presentacion: ");
-  let dificultad:number = rdl.questionInt("Ingrese el puntaje de dificultad: ");
+  let sabor:number = rdl.questionInt("Ingrese el puntaje de sabor, maximo 5: ");
+  let presentacion:number = rdl.questionInt("Ingrese el puntaje de presentacion, maximo 5: ");
+  let dificultad:number = rdl.questionInt("Ingrese el puntaje de dificultad, maximo 5: ");
   let puntajeParticipanteActual:number = calcularPuntaje(sabor,presentacion,dificultad);
   if (determinarGanador(puntajeParticipanteGanador,puntajeParticipanteActual)) {
+    hayEmpate = false
     puntajeParticipanteGanador = puntajeParticipanteActual;
     participanteGanador = i;
+    participanteAnterior = participanteGanador;
+  }else if(determinarGanador(puntajeParticipanteGanador,puntajeParticipanteActual)==null){
+    participanteGanador = i;
+    hayEmpate = true
   }
 }
-console.log(`----------------------------------\nLa torta ganadora es la del participante numero ${participanteGanador} con ${puntajeParticipanteGanador} puntos`);
+if(hayEmpate){
+  console.log(`----------------------------------\nHubo un empate entre ${participanteGanador} y ${participanteAnterior} con ${puntajeParticipanteGanador} puntos`);
+}else{
+  console.log(`----------------------------------\nLa torta ganadora es la del participante numero ${participanteGanador} con ${puntajeParticipanteGanador} puntos`);
+}
 
 function calcularPuntaje(sabor:number, presentacion:number, dificultad:number):number{
   let puntaje:number = sabor+presentacion+dificultad;
   return puntaje;
 }
 
-function determinarGanador(pAnterior:number,pActual:number) :boolean{
-  let enMayor:boolean = false
+function determinarGanador(pAnterior:number,pActual:number) :boolean|null{
+  let esMayor:boolean|null = false
   if (pActual>pAnterior) {
-    enMayor = true;
+    esMayor = true;
+  }else if (pActual == pAnterior) {
+    esMayor = null;
   }
-  return enMayor;
+  return esMayor;
 }
