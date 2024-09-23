@@ -22,16 +22,29 @@ Utiliza la librería readline-sync para pedir al usuario el número de participa
  */
 
 import * as rdl from 'readline-sync';
-
-let cantParticipantes:number = rdl.questionInt("Ingrese la cantidad de participantes del concurso: ");
+let cantParticipantes:number = -1;
+while (cantParticipantes < 0) {
+  cantParticipantes = rdl.questionInt("Ingrese la cantidad de participantes del concurso: ");
+  if (cantParticipantes === 0) {
+    break;
+  }
+}
 let puntajeParticipanteGanador:number=0;
 let participanteAnterior:number=0;
 let participanteGanador:number=0;
 let hayEmpate:boolean = false;
 for (let i = 1; i <= cantParticipantes;  i++) {
-  let sabor:number = rdl.questionInt("Ingrese el puntaje de sabor, maximo 5: ");
-  let presentacion:number = rdl.questionInt("Ingrese el puntaje de presentacion, maximo 5: ");
-  let dificultad:number = rdl.questionInt("Ingrese el puntaje de dificultad, maximo 5: ");
+  // let sabor:number = rdl.questionInt("Ingrese el puntaje de sabor, maximo 5: ");
+  // let presentacion:number = rdl.questionInt("Ingrese el puntaje de presentacion, maximo 5: ");
+  // let dificultad:number = rdl.questionInt("Ingrese el puntaje de dificultad, maximo 5: ");
+  console.log(`---------------------------------------\nIngrese para el participante numero ${i}`);
+  console.log("\nEl puntaje de sabor");
+  let sabor:number = pedirPuntajes();
+  console.log("\nEl puntaje de presentacion");
+  let presentacion:number = pedirPuntajes();
+  console.log("\nEl puntaje de dificultad");
+  let dificultad:number = pedirPuntajes();
+  console.log("\n---------------------------------------");
   let puntajeParticipanteActual:number = calcularPuntaje(sabor,presentacion,dificultad);
   if (determinarGanador(puntajeParticipanteGanador,puntajeParticipanteActual)) {
     hayEmpate = false
@@ -45,6 +58,8 @@ for (let i = 1; i <= cantParticipantes;  i++) {
 }
 if(hayEmpate){
   console.log(`----------------------------------\nHubo un empate entre ${participanteGanador} y ${participanteAnterior} con ${puntajeParticipanteGanador} puntos`);
+}else if (cantParticipantes === 0) {
+  console.log("No hay participantes");
 }else{
   console.log(`----------------------------------\nLa torta ganadora es la del participante numero ${participanteGanador} con ${puntajeParticipanteGanador} puntos`);
 }
@@ -62,4 +77,16 @@ function determinarGanador(pAnterior:number,pActual:number) :boolean|null{
     esMayor = null;
   }
   return esMayor;
+}
+
+function pedirPuntajes():number {
+  let puntaje: number = 0;
+
+  while (puntaje < 1 || puntaje > 5) {
+    puntaje = rdl.questionInt("Debe ser entre 1 y 5: \n");
+    if (puntaje < 1 || puntaje > 5) {
+      console.log("El valor ingresado es incorrecto\n");
+    }
+  }
+  return puntaje;
 }
