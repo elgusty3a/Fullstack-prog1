@@ -7,5 +7,4 @@ for (let i = 0; i < nombres.length; i++) {
 }
 for (let i = 0; i < nombres.length; i++) {
   console.log(`En la posicion ${i} se encuentra ${nombres[i]}`);
-  
 }
