@@ -3,10 +3,10 @@ import * as rdl from 'readline-sync';
 let longArreglos:number = rdl.questionInt("Ingreese la longitud de los arreglos: \n");
 let arreglo1:number[] = new Array(longArreglos);
 console.log("Le pediremos los valores para el arreglo numero 1: \n");
-arreglo1 = pedirValores();
+arreglo1 = pedirValores(longArreglos);
 let arreglo2:number[] = new Array(longArreglos);
 console.log("Le pediremos los valores para el arreglo numero 2: \n");
-arreglo2 = pedirValores();
+arreglo2 = pedirValores(longArreglos);
 
 console.log(`Arreglo 1:`);
 imprimirArreglo(arreglo1);
@@ -17,9 +17,9 @@ console.log(`El producto escalar entre los vectores dados es: ${productoEscalar(
 
 
 
-function pedirValores():number[] {
-  let arr:number[] = new Array(longArreglos);
-  for (let i = 0; i < longArreglos; i++) {
+function pedirValores(N:number):number[] {
+  let arr:number[] = new Array(N);
+  for (let i = 0; i < N; i++) {
     let valor:number = rdl.questionInt(`Ingrese el valor de la posicion ${i} del arreglo: \n`);
     arr[i] = valor;
   }
