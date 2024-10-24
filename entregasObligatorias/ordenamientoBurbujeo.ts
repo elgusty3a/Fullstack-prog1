@@ -9,7 +9,7 @@ imprimirArreglo(arr);
 
 function burbujeo(arr:number[],longitud:number) {
   let i,j:number;
-  for (let i = 2; i < longitud; i++) {
+  for (let i = 1; i < longitud; i++) {
     for (let j = 0; j < (longitud-1); j++) {
       if (comparar(arr,j,j+1)==1) {
         intercambiar(arr,j,j+1);
@@ -45,7 +45,7 @@ function imprimirArreglo(arr:number[]) {
 
 function cargarArregloAleatorio(arr:number[],long:number) {
   for (let i = 0; i < long; i++) {
-    nrosAleatorios[i] = generarNroAleatorio();
+    arr[i] = generarNroAleatorio();
   }
 }
 
