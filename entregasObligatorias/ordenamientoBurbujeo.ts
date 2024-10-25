@@ -6,6 +6,8 @@ cargarArregloAleatorio(arr,longitud);
 imprimirArreglo(arr);
 burbujeo(arr,longitud);
 imprimirArreglo(arr);
+burbujeoInverso(arr,longitud);
+imprimirArreglo(arr);
 
 function burbujeo(arr:number[],longitud:number) {
   let i,j:number;
@@ -17,12 +19,31 @@ function burbujeo(arr:number[],longitud:number) {
     }
   }
 }
+function burbujeoInverso(arr:number[],longitud:number) {
+  let i,j:number;
+  for (let i = 1; i < longitud; i++) {
+    for (let j = 0; j < (longitud-1); j++) {
+      if (compararInverso(arr,j,j+1)==1) {
+        intercambiar(arr,j,j+1);
+      }
+    }
+  }
+}
 
 function comparar(arr:number[],i:number,j:number) {
   let comp:number;
   if (arr[i]===arr[j]) {
     comp = 0;
   }else if(arr[i]<arr[j]){
+    comp = -1;
+  } else { comp = 1}
+  return comp;
+}
+function compararInverso(arr:number[],i:number,j:number) {
+  let comp:number;
+  if (arr[i]===arr[j]) {
+    comp = 0;
+  }else if(arr[i]>arr[j]){
     comp = -1;
   } else { comp = 1}
   return comp;
