@@ -91,3 +91,5 @@ function promedioEdad(arr:number[]):number {
   });
   return Math.floor(suma/cantPersonas);
 }
+
+//https://github.com/elgusty3a/Fullstack-prog1/tree/main/1erExamen
