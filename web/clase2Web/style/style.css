@@ -1,0 +1,11 @@
+.banner{
+  color: rgb(116, 201, 151);
+  text-align: center;
+  justify-content: center;
+  min-height: 40vh;
+  background-image: url(/clase2Web/img/destacado-leer-libros-games-of-thrones.jpg);
+  background-position: 50%;
+}
+.banner-img{
+  height: max-content;
+}
