@@ -1,5 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .banner{
+  display: flex;
+  flex-direction: column;
   color: rgb(116, 201, 151);
+  font-size: 1.5rem;
   text-align: center;
   justify-content: center;
   min-height: 40vh;
@@ -8,4 +16,38 @@
 }
 .banner-img{
   height: max-content;
+}
+
+.cuerpo{
+  margin: 2%;
+  padding: 2%;
+  border: 2%;
+  border-radius: 10%;
+  border-style: double;
+  border-color: cadetblue;
+}
+
+.banner_subtitulos{
+  display: flex;
+  flex-direction: row;
+  min-height: 30vh;
+  align-items: center;
+  justify-content: space-around;
+}
+.subtitulos{
+  text-align: center;
+  min-width: max-content;
+  font-size: 1.4rem;
+}
+
+.img_subs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-height: fit-content;
+  max-width: 30%;
+}
+
+.img_subs > img{
+  width: 30%;
 }
