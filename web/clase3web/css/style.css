@@ -1,0 +1,10 @@
+body{
+  display: flex;
+  flex-direction: column;
+}
+.hidden{
+  display: none;
+}
+.texto-rojo{
+  color: red;
+}
