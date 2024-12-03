@@ -1,5 +1,4 @@
-// let texto = document.getElementById("texto");
-// let btnVerMas = document.getElementById("verMas");
+
 let botonesVerMas = document.querySelectorAll(".verMas")
 const verMenos = (elemento1) => {
   elemento1.classList.toggle("hidden");
@@ -10,5 +9,3 @@ botonesVerMas.forEach(elem => {
     verMenos(btn);
   })
 });
-
-console.log(botonesVerMas);
