@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.banner{
+  display: flex;
+  flex-direction: column;
+  color: rgb(12, 61, 32);
+  font-size: 1.5rem;
+  text-align: center;
+  justify-content: center;
+  min-height: 40vh;
+  background-image: url(/img/destacado-leer-libros-games-of-thrones.jpg);
+  background-position: 50%;
+}
+.banner-tit{
+  height: max-content;
+  background-color: rgba(255, 127, 80, 0.43);
+}
+
+.cuerpo{
+  margin: 2%;
+  padding: 2%;
+  border: 2%;
+  border-radius: 10%;
+  border-style: double;
+  border-color: cadetblue;
+}
+
+.banner_subtitulos{
+  display: flex;
+  flex-direction: row;
+  min-height: 30vh;
+  align-items: center;
+  justify-content: space-around;
+}
+.subtitulos{
+  text-align: center;
+  min-width: max-content;
+  font-size: 1.4rem;
+}
+
+.img_subs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-height: fit-content;
+  max-width: 30%;
+}
+
+.img_subs > img{
+  width: 30%;
+}
+
+.obras{
+  width: 80%;
+  margin: 1%;
+  padding: 2%;
+  border-style: groove;
+  border-radius: 10%;
+  border-color: brown;
+}
+
+.products{
+  margin: 3%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.cartBody{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.cards {
+  grid-column: 1 / 4;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  margin: 10px;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 4;
+}
+#totalCart{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.input-group>span{
+  max-width: min-content;
+}
+
+.buys{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1%;
+  border-style: groove;
+  border-radius: 5%;
+}
